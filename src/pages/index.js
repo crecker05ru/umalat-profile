@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, {useState} from "react"
 import './index.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -7,6 +7,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 library.add(fab, faCheckSquare, faCoffee,faAward)
 // markup
 const IndexPage = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] =  useState('')
+    const [message, setMessage] = useState('')
+    const onNameChange = (event) =>  {
+      setName({name: event.target.value})
+    }
+  
+    const onEmailChange = (event) => {
+      setEmail({email: event.target.value})
+    }
+  
+    const onMessageChange =(event) =>  {
+      setMessage({message: event.target.value})
+    }
+  
+    const handleSubmit = (event) => {
+       event.preventDefault();
+      console.log(name,email,message);
+        setName('')
+        setEmail('')
+        setMessage('')
+    }
   return (
       <body>
           <main className="main__row">
@@ -63,10 +85,10 @@ const IndexPage = () => {
               <div className="contact-us white">
                 <div className="contact-us__header">Обратная связь</div>
                 <div className="contact-us__form">
-                  <form action="index.html" method="POST">
-                    <div className="contact-us__input name__input input"> <input type="text" id="contact_name" name="contact_name" placeholder="Имя" required /></div>
-                    <div className="contact-us__input email__input input"> <input type="email" id="contact_email" name="contact_email" placeholder="Email" required/></div>
-                    <div className="contact-us__input message__textarea"> <textarea rows="5" id="contact_message" name="contact_message" placeholder="Сообщение" required></textarea></div>
+                  <form id="contact-form" method="POST" onSubmit={handleSubmit}>
+                    <div className="contact-us__input name__input input"> <input type="text" id="contact_name" name="contact_name" placeholder="Имя" required value={name} onChange={ e => setName(e.target.value)}/></div>
+                    <div className="contact-us__input email__input input"> <input type="email" id="contact_email" name="contact_email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)}/></div>
+                    <div className="contact-us__input message__textarea"> <textarea rows="5" id="contact_message" name="contact_message" placeholder="Сообщение" required value={message} onChange={e => setMessage(e.target.value)}></textarea></div>
                     <div className="contact-us__input send__button"> <button type="submit"className="button">Отправить</button></div>
                   </form>
                 </div>
