@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faAward, faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios'
 library.add(fab, faCheckSquare, faCoffee,faAward)
 // markup
 const IndexPage = () => {
@@ -24,11 +25,26 @@ const IndexPage = () => {
   
     const handleSubmit = (event) => {
        event.preventDefault();
-      console.log(name,email,message);
+       axios({
+        method: "POST",
+        url:"http://localhost:3002/send",
+        data:  [{name,email,message}]
+      }).then((response)=>{
+        if (response.data.status === 'success') {
+          alert("Message Sent.");
+        } else if(response.data.status === 'fail') {
+          alert("Message failed to send.")
+        }
+      })
         setName('')
         setEmail('')
         setMessage('')
     }
+    // const resetForm = () =>{
+    //   setName(name = ``)
+    //   setEmail(email = ``)
+    //   setMessage(message = ``)
+    // }
   return (
       <body>
           <main className="main__row">

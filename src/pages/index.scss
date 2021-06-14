@@ -271,3 +271,68 @@ button{
     text-align: center;
     margin: 30px 0 0 0;
 }
+@media (max-width: 1232px){
+    body {
+        padding: 60px;
+    }
+}
+@media (max-width: 1199px) {
+    .main__row{
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+    .container{
+        max-width: 600px;
+    }
+    .item-about__text{
+        padding: 114px 50px 0;
+    }
+}
+@media (max-width: 540px){
+    brand-inner{
+        flex-direction: column;
+        padding: 35px;
+        right: 30px;
+    }
+    brand-name{
+        margin-top: 20px;
+    }
+    contact-form{
+        width: calc(100% - 20px);
+    }
+}
+@media (max-width: 520px){
+    body{
+        padding: 40px;
+    }
+    block-pad,.response{
+        padding: 30px;
+    }
+    hero-text{
+        padding: 50px 45px 0;
+    }
+    block-brand{
+        margin-top: 70px;
+    }
+}
+@media (max-width: 417px){
+    block-left,block-left-2{
+        right:0
+    }
+    block-wider{
+        width: 100%
+    }
+    footer{
+        flex-direction: column;
+    }
+}
+@media (max-width: 390px){
+    body{
+        padding: 40px 20px 10px;
+    }
+    form-section-tag-inner,.response{
+        left : 25px;
+        right: -25px;
+        bottom: -25px;
+    }
+}
