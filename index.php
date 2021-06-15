@@ -5,6 +5,7 @@ header("Content-Type: application/json");
 
 $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
+print_r($_POST,'POST');
 
 $errors = array();
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -55,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       $sent = true;
     }
   }
+  
 }
 ?>
 

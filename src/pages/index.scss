@@ -32,16 +32,16 @@ column-count: 2;
 column-gap: 0;
 -webkit-column-count: 0;
 }
-.item__column{
+// .item__column{
 
-}
+// }
 .left{
 right: 20px;
 bottom: 20px;
 }
-.right{
+// .right{
 
-}
+// }
 .white{
     background-color: #fff;
 }
@@ -303,7 +303,10 @@ button{
 }
 @media (max-width: 520px){
     body{
-        padding: 40px;
+        padding: 30px;
+        left: 25px;
+        right: -25px;
+        bottom: -25px;
     }
     block-pad,.response{
         padding: 30px;

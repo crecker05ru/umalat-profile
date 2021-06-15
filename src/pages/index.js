@@ -28,7 +28,7 @@ const IndexPage = () => {
        axios({
         method: "POST",
         url:"http://localhost:3002/send",
-        data:  [{name,email,message}]
+        data:  {name,email,message}
       }).then((response)=>{
         if (response.data.status === 'success') {
           alert("Message Sent.");
